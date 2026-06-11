@@ -47,13 +47,14 @@ Comparative between area levels:
 
 ## Project Structure
 
-- Download_water_data_API.qmd
-- Water_quality_analyses.qmd → full analysis in r
-- Environmental_pollution_incidents .qmd → full analysis in r
-- Water_quality_analyses.html → rendered report
-- Environmental_pollution_incidents .html → rendered report
 - data/ → raw data files in csv format
 - outputs/ → plots and results
+- Download_water_data_API.qmd → API script for data download
+- Environmental_pollution_incidents.qmd → full analysis in r
+- Environmental_pollution_incidents.pdf → rendered report
+- Water_quality_analyses.qmd → full analysis in r
+- Water_quality_analyses.pdf → rendered report
+
 
 ## References
 
