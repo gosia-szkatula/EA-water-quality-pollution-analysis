@@ -1,0 +1,254 @@
+---
+title: "Environmental Pollution Incidents across England (2000-2026)"
+author: "Gosia Szkatula"
+date: 06/10/2026
+project:
+  type: website
+
+format:
+  html:
+    toc: true
+    toc-location: left
+    page-layout: full
+---
+
+```{r}
+#| output: false
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+library(tidyverse)
+library(rio)
+library(readr)
+library(sf)
+#library(lubridate)
+```
+
+https://www.data.gov.uk/dataset/c8625e18-c329-4032-b4c7-444b33af6780/environmental-pollution-incidents-category-1-and-21
+
+
+
+```{r}
+# url
+url <- "https://environment.data.gov.uk/api/file/download?fileDataSetId=a5a11813-517a-478b-be89-4acdf2c1f105&fileName=Environmental%20Pollution%20Incidents%20(Category%201%20and%202).zip"
+
+# download file
+download.file(url, destfile = "data/pollution.zip", mode = "wb")
+
+#unzip
+unzip("data/pollution.zip",
+      files = c("EP_Incidents_Nirs2.csv", "EP_Pollutants_Nirs2.csv"),
+      exdir = "data")
+
+# assign to variables
+incidents <- rio::import("data/EP_Incidents_Nirs2.csv")
+pollutants <- rio::import("data/EP_Pollutants_Nirs2.csv")
+
+# date, year and month
+incidents$NOT_DATE <- as.POSIXct(incidents$NOT_DATE, format = "%d/%m/%Y %H:%M")
+incidents$YEAR <- as.numeric(format(incidents$NOT_DATE, "%Y"))
+incidents$MONTH <- as.numeric(format(incidents$NOT_DATE, "%m"))
+
+# Convert to spatial object (British National Grid)
+df <- st_as_sf(incidents, coords = c("X_CONF", "Y_CONF"), crs = 27700)
+
+# join datasets
+df <- df %>%
+  left_join(
+    pollutants %>% select(NOT_ID, POLL_TYPE, POLLUTANT), 
+    by = "NOT_ID")
+
+# nominal categorical as factors
+df$REGION_WM <- as.factor(df$REGION_WM)
+df$AREA_WM <- as.factor(df$AREA_WM)
+df$REGION_PF <- as.factor(df$REGION_PF)
+df$AREA_PF <- as.factor(df$AREA_PF)
+df$COUNTY <- as.factor(df$COUNTY)
+df$UNITARY <- as.factor(df$UNITARY)
+df$DISTRICT <- as.factor(df$DISTRICT)
+df$EP_INC <- as.factor(df$EP_INC)
+df$EIL_AIR <- as.factor(df$EIL_AIR)
+df$EIL_LAND <- as.factor(df$EIL_LAND)
+df$EIL_WATER <- as.factor(df$EIL_WATER)
+df$POLL_TYPE <- as.factor(df$POLL_TYPE)
+df$POLLUTANT <- as.factor(df$POLLUTANT)
+
+# ordinal categorical as factors
+df <- df %>%
+  mutate(YEAR = factor(YEAR, levels = sort(unique(YEAR))))
+df <- df %>%
+  mutate(MONTH = factor(MONTH, levels = sort(unique(MONTH))))
+
+# view variables and observations
+str(df)
+summary(df)
+```
+
+```{r}
+#| label: fig-map-category
+#| fig-cap: "Map of pollution incidents by category (2000-2026)"
+#| fig-width: 10
+#| fig-height: 10
+# plot map, facet by year
+ggplot(df) +
+  geom_sf(aes(color = factor(EIL_WATER))) +
+  facet_wrap(~ YEAR) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Environmental Impact Level (Water)",
+    title = "Map of incidents by category (2000-2026)"
+  )  +
+  theme_bw() +
+  theme(
+    legend.position = "right"
+  )
+```
+
+```{r}
+# create data subset for 2025 only
+df_25 <- df %>%
+  filter(YEAR == 2025)
+```
+
+
+```{r}
+#| label: fig-map-cat-2025
+#| fig-cap: "Map of pollution incidents by category (2025)"
+#| fig-width: 8
+#| fig-height: 8
+# plot 2025 only as a map
+ggplot(df_25) +
+  geom_sf(aes(color = factor(EIL_WATER))) +
+  facet_wrap(~ YEAR) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Environmental Impact Level (Water)",
+    title = "Map of incidents by category (2025)"
+  )  +
+  theme_bw() +
+  theme(
+    legend.position = "right"
+  )
+```
+
+```{r}
+#| label: fig-map-poll-cat-2025
+#| fig-cap: "Map of pollution incidents by pollutant type and category (2025)"
+#| fig-width: 10
+#| fig-height: 10
+# plot 2025 only as a map, facet by incident category
+ggplot(df_25) +
+  geom_sf(aes(color = factor(POLL_TYPE))) +
+facet_wrap(~ EIL_WATER) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Pollutant Type",
+    title = "Map of incidents by category and pollutant type (2025)"
+  ) +
+  theme_bw() +
+  theme(
+    legend.position = "right"
+  )
+```
+
+```{r}
+#| label: fig-region-cat
+#| fig-cap: "Bar chart of incidents by region and category (2020-2026)"
+#| fig-width: 8
+#| fig-height: 4
+# Region and Category - 27 years (2020 - 2026)
+ggplot(df,
+       aes(x = EIL_WATER, fill = EIL_WATER)) +
+  geom_bar() +
+  facet_wrap(~ REGION_PF,
+             nrow = 3, ncol = 3,
+             labeller = label_wrap_gen(width = 15)) +
+  labs(
+    x = NULL,
+    y = "Counts",
+    fill = "Category",
+    title = "Frequencies of incidents by Region and Category (2020-2026)"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "right"
+  )
+
+```
+
+```{r}
+#| label: fig-region-cat-2025
+#| fig-cap: "Bar chart of incidents by region and category (2025)"
+#| fig-width: 8
+#| fig-height: 4
+# Region and Category - 1 year  (2025)
+ggplot(df_25,
+       aes(x = EIL_WATER, fill = EIL_WATER)) +
+  geom_bar() +
+  facet_wrap(~ REGION_PF,
+             nrow = 3, ncol = 3,
+             labeller = label_wrap_gen(width = 15)) +
+  labs(
+    x = NULL,
+    y = "Counts",
+    fill = "Category",
+    title = "Frequencies of incidents by Region and Category (2025)"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "right"
+  )
+```
+
+```{r}
+#| label: fig-cat-poll
+#| fig-cap: "Bar chart of incidents by category and pollutant type (2000-2026)"
+#| fig-width: 8
+#| fig-height: 4
+# Category and Pollution - 27 years (2020 - 2026)
+ggplot(df,
+       aes(x = POLL_TYPE, fill = POLL_TYPE)) +
+  geom_bar() +
+  facet_wrap(~ EIL_WATER) +
+  labs(
+    x = NULL,
+    y = "Counts",
+    fill = "Category",
+    title = "Frequencies of incidents by Category and Pollution Type (2020-2026)"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "right"
+  )
+```
+
+```{r}
+#| label: fig-cat-poll-2025
+#| fig-cap: "Bar chart of incidents by category and pollutant type (2025)"
+#| fig-width: 8
+#| fig-height: 4
+# Category and Pollution - 1 year  (2025)
+ggplot(df_25,
+       aes(x = POLL_TYPE, fill = POLL_TYPE)) +
+  geom_bar() +
+  facet_wrap(~ EIL_WATER) +
+  labs(
+    x = NULL,
+    y = "Counts",
+    fill = "Category",
+    title = "Frequencies of incidents by Category and Pollution Type (2025)"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "right"
+  )
+```

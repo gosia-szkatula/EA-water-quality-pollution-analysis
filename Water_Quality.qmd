@@ -1,0 +1,469 @@
+---
+title: "Water quality analyses for selected local authority areas (2020-2025)"
+author: "Gosia Szkatula"
+date: 06/10/2026
+project:
+  type: website
+
+format:
+  html:
+    toc: true
+    toc-location: left
+    page-layout: full
+    self-contained: false
+---
+
+
+```{r}
+#| output: false
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+library(tidyverse)
+library(rio)
+library(readr)
+library(patchwork)
+```
+
+Two pairs of geographically proximate sampling sites in the south of England were selected for analysis:
+
+    -   E06000035 Medway
+    -   E07000064 Rother
+    -   E06000046 Isle of Wight
+    -   E07000091 New Forest
+
+# Datasets
+
+```{r}
+# Import from csv
+med <- rio::import("data/E06000035_Medway.csv")
+rot <- rio::import("data/E07000064_Rother.csv")
+iow <- rio::import("data/E06000046_Isle_of_Wight.csv")
+nfo <- rio::import("data/E07000091_New_Forest.csv")
+
+# Add location column
+med$location <- "Medway"
+rot$location <- "Rother"
+iow$location <- "Isle_of_Wight"
+nfo$location <- "New_Forest"
+```
+
+# Reusable function
+
+```{r}
+plot_fun <- function(df, var) {
+
+  # correct n (excl. missing values). 
+  n <- sum(!is.na(df[[var]]))
+
+  # 1. Histogram (distribution)
+  p1 <- ggplot(df, aes(x = .data[[var]])) +
+    geom_histogram(bins = 30) +
+    theme_bw() +
+    ggtitle(paste0("Hist. of ", var))
+  
+  # 2. Overall boxplot (outliers)
+  p2 <- ggplot(df, aes(y = .data[[var]])) +
+    geom_boxplot() +
+    theme_bw() +
+    ggtitle(paste0("Boxplot of ", var))
+
+  # monthly trend (sesonality)
+  p3 <- ggplot(df, aes(x = phenomenonTime, y = .data[[var]])) +
+    geom_line(alpha = 0.5) +
+    geom_smooth() +
+    theme_bw() +
+    ggtitle(paste0("Time Series of ", var))
+  
+  # yearly trend
+  p4 <- ggplot(df, aes(x = YEAR, y = .data[[var]])) +
+    stat_summary(fun = mean, geom = "line") +
+    stat_summary(fun = mean, geom = "point") +
+    theme_bw() +
+    ggtitle(paste0("Yearly Mean of ", var))
+  
+  # monthly distribution
+  p5 <- ggplot(df, aes(x = factor(MONTH), y = .data[[var]])) +
+    geom_boxplot() +
+    theme_bw() +
+    ggtitle(paste0("Monthly Dist. of ", var))
+  
+  # yearly distribution 
+  p6 <- ggplot(df, aes(x = factor(YEAR), y = .data[[var]])) +
+    geom_boxplot() +
+    ggtitle(paste0("Yearly Dist of ", var))
+
+  # layout 
+  (p1 | p2) /
+  (p3 | p4) /
+  (p5 | p6) +
+    plot_annotation(
+      title = paste0("Exploratory Analysis of ", var, " (n = ", n, ")")
+    )
+}
+```
+
+# Inspect datasets
+
+## E06000035_Medway
+
+```{r}
+# ------ 1. Data cleaning and quality check ------
+
+# Specify the dataset
+df <- med # <- only change this
+
+# categorical nominal variables as factors
+df$location <- as.factor(df$location)
+df$samplingPoint.notation <- as.factor(df$samplingPoint.notation)
+df$samplingPoint.prefLabel <- as.factor(df$samplingPoint.prefLabel)
+df$samplingPoint.region <- as.factor(df$samplingPoint.region)
+df$samplingPoint.area <- as.factor(df$samplingPoint.area)
+df$samplingPoint.subArea <- as.factor(df$samplingPoint.subArea)
+df$samplingPoint.samplingPointStatus <- as.factor(df$samplingPoint.samplingPointStatus)
+df$samplingPoint.samplingPointType <- as.factor(df$samplingPoint.samplingPointType)
+df$samplingPurpose <- as.factor(df$samplingPurpose)
+df$sampleMaterialType <- as.factor(df$sampleMaterialType)
+
+# create month end year
+df <- df %>%
+  mutate(
+    YEAR = year(phenomenonTime),
+    MONTH = month(phenomenonTime)
+  )
+
+# check for missing data
+colSums(is.na(df))
+
+# remove duplicates, if any
+df <- df %>%
+  distinct()
+
+# check structure
+str(df)
+
+# check ranges
+summary(df)
+```
+
+```{r}
+#| label: fig-Medway-ph
+#| fig-cap: "E06000035 Medway. pH (2020-2025)"
+# pH of Water
+plot_fun(df, "pH Water")
+```
+
+```{r}
+#| label: fig-Medway-temp
+#| fig-cap: "E06000035 Medway. Temperature (2020-2025)"
+# Temperature of Water
+plot_fun(df, "Temp Water")
+```
+
+```{r}
+#| label: fig-Medway-cond
+#| fig-cap: "E06000035 Medway. Conductivity @ 25C (2020-2025)"
+# Conductivity @ 25 degrees
+plot_fun(df, "Cond @ 25C")
+```
+
+## E07000064_Rother
+
+```{r}
+# ------ 1. Data cleaning and quality check ------
+
+# Specify the dataset
+df <- rot # <- only change this
+
+# categorical nominal variables as factors
+df$location <- as.factor(df$location)
+df$samplingPoint.notation <- as.factor(df$samplingPoint.notation)
+df$samplingPoint.prefLabel <- as.factor(df$samplingPoint.prefLabel)
+df$samplingPoint.region <- as.factor(df$samplingPoint.region)
+df$samplingPoint.area <- as.factor(df$samplingPoint.area)
+df$samplingPoint.subArea <- as.factor(df$samplingPoint.subArea)
+df$samplingPoint.samplingPointStatus <- as.factor(df$samplingPoint.samplingPointStatus)
+df$samplingPoint.samplingPointType <- as.factor(df$samplingPoint.samplingPointType)
+df$samplingPurpose <- as.factor(df$samplingPurpose)
+df$sampleMaterialType <- as.factor(df$sampleMaterialType)
+
+# create month end year
+df <- df %>%
+  mutate(
+    YEAR = year(phenomenonTime),
+    MONTH = month(phenomenonTime)
+  )
+
+# check for missing data
+colSums(is.na(df))
+
+# remove duplicates, if any
+df <- df %>%
+  distinct()
+
+# check structure
+str(df)
+
+# check ranges
+summary(df)
+```
+
+```{r}
+#| label: fig-Rother-ph
+#| fig-cap: "E07000064 Rother. pH (2020-2025)"
+# pH of Water
+plot_fun(df, "pH Water")
+```
+
+```{r}
+#| label: fig-Rother-temp
+#| fig-cap: "E07000064 Rother. Temperature (2020-2025)"
+# Temperature of Water
+plot_fun(df, "Temp Water")
+```
+
+```{r}
+#| label: fig-Rother-cond
+#| fig-cap: "E07000064 Rother. Conductivity @ 25C (2020-2025)"
+# Conductivity @ 25 degrees
+plot_fun(df, "Cond @ 25C")
+```
+
+
+## E06000046_Isle_of_Wight
+
+```{r}
+# ------ 1. Data cleaning and quality check ------
+
+# Specify the dataset
+df <- iow # <- only change this
+
+# categorical nominal variables as factors
+df$location <- as.factor(df$location)
+df$samplingPoint.notation <- as.factor(df$samplingPoint.notation)
+df$samplingPoint.prefLabel <- as.factor(df$samplingPoint.prefLabel)
+df$samplingPoint.region <- as.factor(df$samplingPoint.region)
+df$samplingPoint.area <- as.factor(df$samplingPoint.area)
+df$samplingPoint.subArea <- as.factor(df$samplingPoint.subArea)
+df$samplingPoint.samplingPointStatus <- as.factor(df$samplingPoint.samplingPointStatus)
+df$samplingPoint.samplingPointType <- as.factor(df$samplingPoint.samplingPointType)
+df$samplingPurpose <- as.factor(df$samplingPurpose)
+df$sampleMaterialType <- as.factor(df$sampleMaterialType)
+
+# create month end year
+df <- df %>%
+  mutate(
+    YEAR = year(phenomenonTime),
+    MONTH = month(phenomenonTime)
+  )
+
+# check for missing data
+colSums(is.na(df))
+
+# remove duplicates, if any
+df <- df %>%
+  distinct()
+
+# check structure
+str(df)
+
+# check ranges
+summary(df)
+```
+
+```{r}
+#| label: fig-Isle-of-Wight-ph
+#| fig-cap: "E06000046 Isle of Wight. pH (2020-2025)"
+# pH of Water
+plot_fun(df, "pH Water")
+```
+
+```{r}
+#| label: fig-Isle-of-Wight-temp
+#| fig-cap: "E06000046 Isle of Wight. Temperature (2020-2025)"
+# Temperature of Water
+plot_fun(df, "Temp Water")
+```
+
+```{r}
+#| label: fig-Isle-of-Wight-cond
+#| fig-cap: "E06000046 Isle of Wight. Conductivity @ 25C (2020-2025)"
+# Conductivity @ 25 degrees
+plot_fun(df, "Cond @ 25C")
+```
+
+## E07000091_New_Forest
+
+```{r}
+# ------ 1. Data cleaning and quality check ------
+
+# Specify the dataset
+df <- nfo # <- only change this
+
+# categorical nominal variables as factors
+df$location <- as.factor(df$location)
+df$samplingPoint.notation <- as.factor(df$samplingPoint.notation)
+df$samplingPoint.prefLabel <- as.factor(df$samplingPoint.prefLabel)
+df$samplingPoint.region <- as.factor(df$samplingPoint.region)
+df$samplingPoint.area <- as.factor(df$samplingPoint.area)
+df$samplingPoint.subArea <- as.factor(df$samplingPoint.subArea)
+df$samplingPoint.samplingPointStatus <- as.factor(df$samplingPoint.samplingPointStatus)
+df$samplingPoint.samplingPointType <- as.factor(df$samplingPoint.samplingPointType)
+df$samplingPurpose <- as.factor(df$samplingPurpose)
+df$sampleMaterialType <- as.factor(df$sampleMaterialType)
+
+# create month end year
+df <- df %>%
+  mutate(
+    YEAR = year(phenomenonTime),
+    MONTH = month(phenomenonTime)
+  )
+
+# check for missing data
+colSums(is.na(df))
+
+# remove duplicates, if any
+df <- df %>%
+  distinct()
+
+# check structure
+str(df)
+
+# check ranges
+summary(df)
+```
+
+```{r}
+#| label: fig-New-Forest-ph
+#| fig-cap: "E07000091 New Forest. pH (2020-2025)"
+# pH of Water
+plot_fun(df, "pH Water")
+```
+
+```{r}
+#| label: fig-New-Forest-temp
+#| fig-cap: "E07000091 New Forest. Temperature (2020-2025)"
+# Temperature of Water
+plot_fun(df, "Temp Water")
+```
+
+```{r}
+#| label: fig-New-Forest-cond
+#| fig-cap: "E07000091 New Forest. Conductivity @ 25C (2020-2025)"
+# Conductivity @ 25 degrees
+plot_fun(df, "Cond @ 25C")
+```
+
+# Comperative analysis
+
+```{r}
+#| eval: true
+# combine four datasets
+df <- bind_rows(med, rot, iow, nfo)
+
+# categorical nominal variables as factors
+df$location <- as.factor(df$location)
+df$samplingPoint.notation <- as.factor(df$samplingPoint.notation)
+df$samplingPoint.prefLabel <- as.factor(df$samplingPoint.prefLabel)
+df$samplingPoint.region <- as.factor(df$samplingPoint.region)
+df$samplingPoint.area <- as.factor(df$samplingPoint.area)
+df$samplingPoint.subArea <- as.factor(df$samplingPoint.subArea)
+df$samplingPoint.samplingPointStatus <- as.factor(df$samplingPoint.samplingPointStatus)
+df$samplingPoint.samplingPointType <- as.factor(df$samplingPoint.samplingPointType)
+df$samplingPurpose <- as.factor(df$samplingPurpose)
+df$sampleMaterialType <- as.factor(df$sampleMaterialType)
+
+# create month end year
+df <- df %>%
+  mutate(
+    YEAR = year(phenomenonTime),
+    MONTH = month(phenomenonTime)
+  )
+
+# view sampleMaterialType per location
+table(df$sampleMaterialType, df$location)
+
+# view variables and observations
+str(df)
+
+# Create broader categories for samplingPointType
+df <- df %>%
+  mutate(
+    sampleMaterialGroup = fct_collapse(
+      sampleMaterialType,
+      Freshwater = c("RIVER / RUNNING SURFACE WATER", "POND / LAKE / RESERVOIR WATER", "ESTUARINE WATER", "TRADE EFFLUENT - FRESHWATER RETURNED ABSTRACTED", "ANY TRADE EFFLUENT"),
+      Groundwater = c("GROUNDWATER - PURGED/PUMPED/REFILLED", "GROUNDWATER"),
+      Sewage = c("FINAL SEWAGE EFFLUENT"),
+      Seawater = c("SEA WATER")
+    )
+  )
+
+# Means on non-missing values (pH and temp only)
+df <- df %>%
+  group_by(location,sampleMaterialGroup) %>%
+  summarise(
+    mean_temp = mean(`Temp Water`, na.rm = TRUE),
+    mean_ph = mean(`pH Water`, na.rm = TRUE),
+    mean_cond = mean(`Cond @ 25C`, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# quick view variables and observations
+str(df)
+```
+
+
+```{r}
+#| label: fig-mean-temp-ph-location
+#| fig-cap: "Mean pH by Sample Material Type and Location (2020-2025)"
+
+# compare mean pH by location
+ggplot(df,
+       aes(x = location, y = mean_ph, fill = location)) +
+  geom_col() +
+  facet_wrap(~ sampleMaterialGroup) +
+  labs(    
+    x = "Local authority area",    
+    y = "Mean water pH",
+    fill = "Local authority area",
+    title = "Mean pH by Site Type and Location") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "right")
+
+```
+
+```{r}
+#| label: fig-mean-temp-material-location
+#| fig-cap: "Mean Temerpature by Sample Material Type and Location (2020-2025)"
+
+# compare mean temperature by location
+ggplot(df,
+       aes(x = location, y = mean_temp, fill = location)) +
+  geom_col() +
+  facet_wrap(~ sampleMaterialGroup) +
+  labs(    
+    x = "Local authority area",    
+    y = "Mean water temeprature",
+    fill = "Local authority area",
+    title = "Mean Temerpature by Site Type and Location") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "right")
+```
+
+```{r}
+#| label: fig-mean-cond-material-location
+#| fig-cap: "Mean Conductivity by Sample Material Type and Location (2020-2025)"
+
+ggplot(df,
+       aes(x = location, y = mean_cond, fill = location)) +
+  geom_col() +
+  facet_wrap(~ sampleMaterialGroup) +
+  labs(    
+    x = "Local authority area",    
+    y = "Mean water conductivity @ 25C",
+    fill = "Local authority area",
+    title = "Mean Conductivity by Site Type and Location") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "right")
+```

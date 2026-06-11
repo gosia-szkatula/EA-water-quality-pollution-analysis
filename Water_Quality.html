@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gosia Szkatula">
+<meta name="dcterms.date" content="2026-06-10">
+
+<title>Water quality analyses for selected local authority areas (2020-2025)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Water_Quality_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Water_Quality_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Water_Quality_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Water_Quality_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="Water_Quality_files/libs/quarto-html/popper.min.js"></script>
+<script src="Water_Quality_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Water_Quality_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Water_Quality_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Water_Quality_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Water_Quality_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Water_Quality_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Water_Quality_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#reusable-function" id="toc-reusable-function" class="nav-link" data-scroll-target="#reusable-function">Reusable function</a></li>
+  <li><a href="#inspect-datasets" id="toc-inspect-datasets" class="nav-link" data-scroll-target="#inspect-datasets">Inspect datasets</a>
+  <ul class="collapse">
+  <li><a href="#e06000035_medway" id="toc-e06000035_medway" class="nav-link" data-scroll-target="#e06000035_medway">E06000035_Medway</a></li>
+  <li><a href="#e07000064_rother" id="toc-e07000064_rother" class="nav-link" data-scroll-target="#e07000064_rother">E07000064_Rother</a></li>
+  <li><a href="#e06000046_isle_of_wight" id="toc-e06000046_isle_of_wight" class="nav-link" data-scroll-target="#e06000046_isle_of_wight">E06000046_Isle_of_Wight</a></li>
+  <li><a href="#e07000091_new_forest" id="toc-e07000091_new_forest" class="nav-link" data-scroll-target="#e07000091_new_forest">E07000091_New_Forest</a></li>
+  </ul></li>
+  <li><a href="#comperative-analysis" id="toc-comperative-analysis" class="nav-link" data-scroll-target="#comperative-analysis">Comperative analysis</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Water quality analyses for selected local authority areas (2020-2025)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-right">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gosia Szkatula </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 10, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org/"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Two pairs of geographically proximate sampling sites in the south of England were selected for analysis:</p>
+<pre><code>-   E06000035 Medway
+-   E07000064 Rother
+-   E06000046 Isle of Wight
+-   E07000091 New Forest</code></pre>
+<section id="datasets" class="level1">
+<h1>Datasets</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import from csv</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>med <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/E06000035_Medway.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rot <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/E07000064_Rother.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>iow <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/E06000046_Isle_of_Wight.csv"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>nfo <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/E07000091_New_Forest.csv"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add location column</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>med<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="st">"Medway"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>rot<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="st">"Rother"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>iow<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="st">"Isle_of_Wight"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>nfo<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="st">"New_Forest"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="reusable-function" class="level1">
+<h1>Reusable function</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># correct n (excl. missing values). </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(df[[var]]))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Histogram (distribution)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Hist. of "</span>, var))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Overall boxplot (outliers)</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Boxplot of "</span>, var))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># monthly trend (sesonality)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> phenomenonTime, <span class="at">y =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Time Series of "</span>, var))</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># yearly trend</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"line"</span>) <span class="sc">+</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>) <span class="sc">+</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Yearly Mean of "</span>, var))</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># monthly distribution</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  p5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(MONTH), <span class="at">y =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Monthly Dist. of "</span>, var))</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># yearly distribution </span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  p6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(YEAR), <span class="at">y =</span> .data[[var]])) <span class="sc">+</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste0</span>(<span class="st">"Yearly Dist of "</span>, var))</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># layout </span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  (p1 <span class="sc">|</span> p2) <span class="sc">/</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  (p3 <span class="sc">|</span> p4) <span class="sc">/</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  (p5 <span class="sc">|</span> p6) <span class="sc">+</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_annotation</span>(</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Exploratory Analysis of "</span>, var, <span class="st">" (n = "</span>, n, <span class="st">")"</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inspect-datasets" class="level1">
+<h1>Inspect datasets</h1>
+<section id="e06000035_medway" class="level2">
+<h2 class="anchored" data-anchor-id="e06000035_medway">E06000035_Medway</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------ 1. Data cleaning and quality check ------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the dataset</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> med <span class="co"># &lt;- only change this</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical nominal variables as factors</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>location)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.notation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.notation)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.prefLabel <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.prefLabel)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.region)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.area)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.subArea <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.subArea)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointStatus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointStatus)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointType)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPurpose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPurpose)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sampleMaterialType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>sampleMaterialType)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create month end year</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="fu">year</span>(phenomenonTime),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">MONTH =</span> <span class="fu">month</span>(phenomenonTime)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># check for missing data</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Date            samplingPoint.notation 
+                                0                                 0 
+          samplingPoint.prefLabel             samplingPoint.easting 
+                                0                                 0 
+           samplingPoint.northing              samplingPoint.region 
+                                0                                 0 
+               samplingPoint.area             samplingPoint.subArea 
+                                0                                 0 
+samplingPoint.samplingPointStatus   samplingPoint.samplingPointType 
+                                0                                 0 
+                   phenomenonTime                   samplingPurpose 
+                                0                                 0 
+               sampleMaterialType                          pH Water 
+                                0                                22 
+                       Temp Water                        Cond @ 25C 
+                              147                                19 
+                         location                              YEAR 
+                                0                                 0 
+                            MONTH 
+                                0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove duplicates, if any</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check structure</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   215 obs. of  19 variables:
+ $ Date                             : IDate, format: "2020-01-10" "2020-02-25" ...
+ $ samplingPoint.notation           : Factor w/ 8 levels "SO-5GWQ0462",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ samplingPoint.prefLabel          : Factor w/ 8 levels "ALLENS HILL INVESTIGATION AT CLIFFE POOLS",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.easting            : int  572949 572949 572949 572949 572949 572949 572949 572949 572949 572949 ...
+ $ samplingPoint.northing           : int  176722 176722 176722 176722 176722 176722 176722 176722 176722 176722 ...
+ $ samplingPoint.region             : Factor w/ 1 level "Southern": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.area               : Factor w/ 1 level "SOUTHERN - KENT AND SOUTH LONDON": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.subArea            : Factor w/ 1 level "L&amp;W KENT AND SOUTH LONDON (SO)": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointStatus: Factor w/ 1 level "OPEN": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointType  : Factor w/ 5 levels "FRESHWATER - LAKES/PONDS/RESERVOIRS",..: 5 5 5 5 5 5 5 5 5 5 ...
+ $ phenomenonTime                   : POSIXct, format: "2020-01-10 09:38:00" "2020-02-25 12:01:00" ...
+ $ samplingPurpose                  : Factor w/ 4 levels "COMPLIANCE AUDIT (PERMIT)",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ sampleMaterialType               : Factor w/ 4 levels "ESTUARINE WATER",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ pH Water                         : num  8.45 8.6 8.63 8.43 8.74 8.67 8.61 8.69 8.83 8.66 ...
+ $ Temp Water                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Cond @ 25C                       : int  44870 40656 38052 41183 40625 41310 39550 38616 37440 40922 ...
+ $ location                         : Factor w/ 1 level "Medway": 1 1 1 1 1 1 1 1 1 1 ...
+ $ YEAR                             : num  2020 2020 2020 2021 2021 ...
+ $ MONTH                            : num  1 2 3 10 11 12 1 2 3 5 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ranges</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date            samplingPoint.notation
+ Min.   :2020-01-10   SO-E0007222:47        
+ 1st Qu.:2022-03-17   SO-E0007223:46        
+ Median :2023-11-21   SO-E0007220:44        
+ Mean   :2023-08-01   SO-E0004880:36        
+ 3rd Qu.:2025-01-27   SO-E0007235:21        
+ Max.   :2025-12-16   SO-E0007331:16        
+                      (Other)    : 5        
+                              samplingPoint.prefLabel samplingPoint.easting
+ ALLENS HILL INVESTIGATION AT CLIFFE POOLS:47         Min.   :570951       
+ CLIFFE POOL CAR PARK                     :46         1st Qu.:572261       
+ ALPHA LAKE OUTLET                        :44         Median :572307       
+ CLIFFE QUARRY, CLIFFE, KENT              :36         Mean   :572918       
+ BUCKLAND LAKE SOUTH                      :21         3rd Qu.:572949       
+ DOWNSTREAM KINGSNORTH INDUSTRIAL         :16         Max.   :581238       
+ (Other)                                  : 5                              
+ samplingPoint.northing samplingPoint.region
+ Min.   :173438         Southern:215        
+ 1st Qu.:175885                             
+ Median :175988                             
+ Mean   :175912                             
+ 3rd Qu.:176041                             
+ Max.   :176782                             
+                                            
+                        samplingPoint.area
+ SOUTHERN - KENT AND SOUTH LONDON:215     
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                    samplingPoint.subArea samplingPoint.samplingPointStatus
+ L&amp;W KENT AND SOUTH LONDON (SO):215       OPEN:215                         
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                      samplingPoint.samplingPointType
+ FRESHWATER - LAKES/PONDS/RESERVOIRS                                  : 36           
+ GROUNDWATER - BOREHOLE                                               :  2           
+ GROUNDWATER - WELLS &amp; ADITS                                          :  3           
+ TRADE DISCHARGES - SITE DRAINAGE (CONTAM SURFACE WATER, NOT WASTE SIT: 16           
+ WASTE SITE - INDUSTRIAL LANDFILL                                     :158           
+                                                                                     
+                                                                                     
+ phenomenonTime               
+ Min.   :2020-01-10 09:38:00  
+ 1st Qu.:2022-03-17 10:48:00  
+ Median :2023-11-21 10:30:00  
+ Mean   :2023-08-01 18:40:22  
+ 3rd Qu.:2025-01-27 10:43:30  
+ Max.   :2025-12-16 12:31:00  
+                              
+                                           samplingPurpose
+ COMPLIANCE AUDIT (PERMIT)                         :137   
+ ENVIRONMENTAL MONITORING STATUTORY (EU DIRECTIVES): 22   
+ PLANNED INVESTIGATION (LOCAL MONITORING)          : 21   
+ PLANNED INVESTIGATION (NATIONAL AGENCY POLICY)    : 35   
+                                                          
+                                                          
+                                                          
+                     sampleMaterialType    pH Water       Temp Water   
+ ESTUARINE WATER              :137      Min.   :6.950   Min.   : 3.20  
+ GROUNDWATER                  :  5      1st Qu.:8.300   1st Qu.: 7.70  
+ POND / LAKE / RESERVOIR WATER: 57      Median :8.520   Median :11.15  
+ RIVER / RUNNING SURFACE WATER: 16      Mean   :8.418   Mean   :12.19  
+                                        3rd Qu.:8.660   3rd Qu.:16.62  
+                                        Max.   :9.480   Max.   :23.70  
+                                        NA's   :22      NA's   :147    
+   Cond @ 25C       location        YEAR          MONTH       
+ Min.   :  1168   Medway:215   Min.   :2020   Min.   : 1.000  
+ 1st Qu.:  2100                1st Qu.:2022   1st Qu.: 3.000  
+ Median : 32000                Median :2023   Median : 6.000  
+ Mean   : 28192                Mean   :2023   Mean   : 6.386  
+ 3rd Qu.: 40602                3rd Qu.:2025   3rd Qu.:10.000  
+ Max.   :377705                Max.   :2025   Max.   :12.000  
+ NA's   :19                                                   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pH of Water</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"pH Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 22 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 22 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 22 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Medway-ph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Medway-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Medway-ph-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Medway-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: E06000035 Medway. pH (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature of Water</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Temp Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 147 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 147 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 147 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 147 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 147 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 147 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 147 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Medway-temp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Medway-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Medway-temp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Medway-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: E06000035 Medway. Temperature (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conductivity @ 25 degrees</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Cond @ 25C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 19 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 19 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Medway-cond" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Medway-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Medway-cond-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Medway-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: E06000035 Medway. Conductivity @ 25C (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="e07000064_rother" class="level2">
+<h2 class="anchored" data-anchor-id="e07000064_rother">E07000064_Rother</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------ 1. Data cleaning and quality check ------</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the dataset</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> rot <span class="co"># &lt;- only change this</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical nominal variables as factors</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>location)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.notation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.notation)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.prefLabel <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.prefLabel)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.region)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.area)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.subArea <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.subArea)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointStatus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointStatus)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointType)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPurpose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPurpose)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sampleMaterialType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>sampleMaterialType)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create month end year</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="fu">year</span>(phenomenonTime),</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">MONTH =</span> <span class="fu">month</span>(phenomenonTime)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="co"># check for missing data</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Date            samplingPoint.notation 
+                                0                                 0 
+          samplingPoint.prefLabel             samplingPoint.easting 
+                                0                                 0 
+           samplingPoint.northing              samplingPoint.region 
+                                0                                 0 
+               samplingPoint.area             samplingPoint.subArea 
+                                0                                 0 
+samplingPoint.samplingPointStatus   samplingPoint.samplingPointType 
+                                0                                 0 
+                   phenomenonTime                   samplingPurpose 
+                                0                                 0 
+               sampleMaterialType                          pH Water 
+                                0                               107 
+                       Temp Water                        Cond @ 25C 
+                              527                               558 
+                         location                              YEAR 
+                                0                                 0 
+                            MONTH 
+                                0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove duplicates, if any</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check structure</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1934 obs. of  19 variables:
+ $ Date                             : IDate, format: "2020-01-09" "2020-02-09" ...
+ $ samplingPoint.notation           : Factor w/ 82 levels "SO-5GWQ0488",..: 17 17 17 17 17 17 17 17 17 17 ...
+ $ samplingPoint.prefLabel          : Factor w/ 82 levels "BATTLE SEWAGE TREATMENT WORKS FINAL EFFLUENT SAMPLED AT OUTFALL",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.easting            : int  575970 575970 575970 575970 575970 575970 575970 575970 575970 575970 ...
+ $ samplingPoint.northing           : int  116160 116160 116160 116160 116160 116160 116160 116160 116160 116160 ...
+ $ samplingPoint.region             : Factor w/ 2 levels "Southern","Thames": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.area               : Factor w/ 3 levels "SOUTHERN - KENT AND SOUTH LONDON",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.subArea            : Factor w/ 4 levels "L&amp;W EAST - SSD",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.samplingPointStatus: Factor w/ 1 level "OPEN": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointType  : Factor w/ 10 levels "FRESHWATER - LAKES/PONDS/RESERVOIRS",..: 8 8 8 8 8 8 8 8 8 8 ...
+ $ phenomenonTime                   : POSIXct, format: "2020-01-09 10:50:00" "2020-02-09 11:25:00" ...
+ $ samplingPurpose                  : Factor w/ 10 levels "COMPLIANCE AUDIT (PERMIT)",..: 10 10 10 10 10 10 10 10 10 10 ...
+ $ sampleMaterialType               : Factor w/ 6 levels "ANY TRADE EFFLUENT",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ pH Water                         : num  7.32 7.5 7.84 7.33 7.49 7.64 7.5 7.81 7.37 7.43 ...
+ $ Temp Water                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Cond @ 25C                       : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ location                         : Factor w/ 1 level "Rother": 1 1 1 1 1 1 1 1 1 1 ...
+ $ YEAR                             : num  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...
+ $ MONTH                            : num  1 2 3 4 5 6 8 9 10 11 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ranges</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date            samplingPoint.notation
+ Min.   :2020-01-03   SO-E0001621:  81      
+ 1st Qu.:2022-05-12   SO-F0001970:  79      
+ Median :2023-10-21   SO-E0001608:  70      
+ Mean   :2023-07-30   SO-E0000109:  65      
+ 3rd Qu.:2024-12-16   SO-E0001735:  60      
+ Max.   :2025-12-18   SO-E0001604:  59      
+                      (Other)    :1520      
+                                                                                             samplingPoint.prefLabel
+ WESTFIELD SEWAGE TREATMENT WORKS FINAL EFFLUENT SAMPLED AT OUTFALL                                      :  81      
+ CATSFIELD SKINNERS LANE SEWAGE TREATMENT WORKS FINAL EFFLUENT SAMPLED AT OUTFALL (STORM COND AT CHAMBER):  79      
+ GUESTLING SEWAGE TREATMENT WORKS FINAL EFFLUENT SAMPLED AT OUTFALL                                      :  70      
+ CAMBER SANDS EC BATHING WATER (13900)                                                                   :  65      
+ KENT DITCH AT A229 DOWNSTREAM CONFLUENCE HAWKHURST SOUTH STREAM                                         :  60      
+ MARSHAM SEWER DOWNSTREAM CONFLUENCE WITH TRIBUTARIES AT CLIFFEND                                        :  59      
+ (Other)                                                                                                 :1520      
+ samplingPoint.easting samplingPoint.northing samplingPoint.region
+ Min.   :565069        Min.   :106232         Southern:1903       
+ 1st Qu.:571698        1st Qu.:115385         Thames  :  31       
+ Median :579400        Median :118473                             
+ Mean   :579733        Mean   :119050                             
+ 3rd Qu.:585890        3rd Qu.:122606                             
+ Max.   :600387        Max.   :133731                             
+                                                                  
+                         samplingPoint.area
+ SOUTHERN - KENT AND SOUTH LONDON :1658    
+ SOUTHERN - SOLENT AND SOUTH DOWNS: 245    
+ THAMES - KENT AND SOUTH LONDON   :  31    
+                                           
+                                           
+                                           
+                                           
+                    samplingPoint.subArea samplingPoint.samplingPointStatus
+ L&amp;W EAST - SSD                :  20      OPEN:1934                        
+ L&amp;W KENT AND SOUTH LONDON (SO):1658                                       
+ L&amp;W KENT AND SOUTH LONDON (TH):  31                                       
+ L&amp;W SOUTH - SSD               : 225                                       
+                                                                           
+                                                                           
+                                                                           
+                                           samplingPoint.samplingPointType
+ FRESHWATER - RIVERS                                       :1191          
+ SEWAGE DISCHARGES - FINAL/TREATED EFFLUENT - WATER COMPANY: 333          
+ FRESHWATER - UNSPECIFIED                                  : 151          
+ FRESHWATER - LAKES/PONDS/RESERVOIRS                       :  73          
+ SALINE WATER - DESIGNATED BATHING BEACHES                 :  65          
+ MISCELLANEOUS DISCHARGES - MINE/GROUNDWATER AS RAISED     :  50          
+ (Other)                                                   :  71          
+ phenomenonTime               
+ Min.   :2020-01-03 10:00:00  
+ 1st Qu.:2022-05-12 11:27:45  
+ Median :2023-10-21 09:49:30  
+ Mean   :2023-07-30 18:38:14  
+ 3rd Qu.:2024-12-16 10:17:00  
+ Max.   :2025-12-18 15:55:00  
+                              
+                                               samplingPurpose
+ MONITORING  (NATIONAL AGENCY POLICY)                  :802   
+ ENVIRONMENTAL MONITORING STATUTORY (EU DIRECTIVES)    :680   
+ WATER QUALITY OPERATOR SELF MONITORING COMPLIANCE DATA:382   
+ COMPLIANCE AUDIT (PERMIT)                             : 51   
+ PLANNED INVESTIGATION (NATIONAL AGENCY POLICY)        : 13   
+ PLANNED INVESTIGATION (LOCAL MONITORING)              :  2   
+ (Other)                                               :  4   
+                     sampleMaterialType    pH Water       Temp Water   
+ ANY TRADE EFFLUENT           :  50     Min.   :5.200   Min.   : 2.40  
+ FINAL SEWAGE EFFLUENT        : 383     1st Qu.:7.290   1st Qu.: 8.50  
+ GROUNDWATER                  :  20     Median :7.500   Median :11.70  
+ POND / LAKE / RESERVOIR WATER:  64     Mean   :7.513   Mean   :11.94  
+ RIVER / RUNNING SURFACE WATER:1352     3rd Qu.:7.700   3rd Qu.:15.30  
+ SEA WATER                    :  65     Max.   :9.400   Max.   :24.40  
+                                        NA's   :107     NA's   :527    
+   Cond @ 25C        location         YEAR          MONTH       
+ Min.   :  118.0   Rother:1934   Min.   :2020   Min.   : 1.000  
+ 1st Qu.:  335.0                 1st Qu.:2022   1st Qu.: 4.000  
+ Median :  426.0                 Median :2023   Median : 7.000  
+ Mean   : 1016.3                 Mean   :2023   Mean   : 6.643  
+ 3rd Qu.:  593.2                 3rd Qu.:2024   3rd Qu.:10.000  
+ Max.   :45875.0                 Max.   :2025   Max.   :12.000  
+ NA's   :558                                                    </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pH of Water</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"pH Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 107 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 107 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 107 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 107 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 107 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 107 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 107 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Rother-ph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rother-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Rother-ph-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rother-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: E07000064 Rother. pH (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature of Water</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Temp Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 527 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 527 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 527 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 527 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 527 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 527 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 527 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Rother-temp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rother-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Rother-temp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rother-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: E07000064 Rother. Temperature (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conductivity @ 25 degrees</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Cond @ 25C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 558 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 558 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 558 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 558 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 558 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 558 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 558 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Rother-cond" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rother-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Rother-cond-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rother-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: E07000064 Rother. Conductivity @ 25C (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="e06000046_isle_of_wight" class="level2">
+<h2 class="anchored" data-anchor-id="e06000046_isle_of_wight">E06000046_Isle_of_Wight</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------ 1. Data cleaning and quality check ------</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the dataset</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> iow <span class="co"># &lt;- only change this</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical nominal variables as factors</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>location)</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.notation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.notation)</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.prefLabel <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.prefLabel)</span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.region)</span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.area)</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.subArea <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.subArea)</span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointStatus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointStatus)</span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointType)</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPurpose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPurpose)</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sampleMaterialType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>sampleMaterialType)</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create month end year</span></span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="fu">year</span>(phenomenonTime),</span>
+<span id="cb62-22"><a href="#cb62-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">MONTH =</span> <span class="fu">month</span>(phenomenonTime)</span>
+<span id="cb62-23"><a href="#cb62-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb62-24"><a href="#cb62-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-25"><a href="#cb62-25" aria-hidden="true" tabindex="-1"></a><span class="co"># check for missing data</span></span>
+<span id="cb62-26"><a href="#cb62-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Date            samplingPoint.notation 
+                                0                                 0 
+          samplingPoint.prefLabel             samplingPoint.easting 
+                                0                                 0 
+           samplingPoint.northing              samplingPoint.region 
+                                0                                 0 
+               samplingPoint.area             samplingPoint.subArea 
+                                0                                 0 
+samplingPoint.samplingPointStatus   samplingPoint.samplingPointType 
+                                0                                 0 
+                   phenomenonTime                   samplingPurpose 
+                                0                                 0 
+               sampleMaterialType                          pH Water 
+                                0                               436 
+                       Temp Water                        Cond @ 25C 
+                               25                               447 
+                         location                              YEAR 
+                                0                                 0 
+                            MONTH 
+                                0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove duplicates, if any</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check structure</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1968 obs. of  19 variables:
+ $ Date                             : IDate, format: "2020-01-23" "2020-02-11" ...
+ $ samplingPoint.notation           : Factor w/ 64 levels "SO-5GWQ0480",..: 29 29 29 29 29 29 29 29 29 29 ...
+ $ samplingPoint.prefLabel          : Factor w/ 64 levels "APSE NEW BARN FARM, NEWCHURCH, IOW",..: 38 38 38 38 38 38 38 38 38 38 ...
+ $ samplingPoint.easting            : int  450200 450200 450200 450200 450200 450200 450200 450200 450200 450200 ...
+ $ samplingPoint.northing           : int  89500 89500 89500 89500 89500 89500 89500 89500 89500 89500 ...
+ $ samplingPoint.region             : Factor w/ 1 level "Southern": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.area               : Factor w/ 1 level "SOUTHERN - SOLENT AND SOUTH DOWNS": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.subArea            : Factor w/ 2 levels "L&amp;W EAST - SSD",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointStatus: Factor w/ 2 levels "CLOSED","OPEN": 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.samplingPointType  : Factor w/ 7 levels "FRESHWATER - RIVERS",..: 7 7 7 7 7 7 7 7 7 7 ...
+ $ phenomenonTime                   : POSIXct, format: "2020-01-23 10:35:00" "2020-02-11 10:01:00" ...
+ $ samplingPurpose                  : Factor w/ 7 levels "ENVIRONMENTAL MONITORING STATUTORY (EU DIRECTIVES)",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ sampleMaterialType               : Factor w/ 4 levels "ESTUARINE WATER",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ pH Water                         : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Temp Water                       : num  8.3 7 7.8 6.4 8.9 13.1 16.1 17.3 7.4 7.9 ...
+ $ Cond @ 25C                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ location                         : Factor w/ 1 level "Isle_of_Wight": 1 1 1 1 1 1 1 1 1 1 ...
+ $ YEAR                             : num  2020 2020 2020 2021 2021 ...
+ $ MONTH                            : num  1 2 12 1 2 5 7 9 12 1 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ranges</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date            samplingPoint.notation
+ Min.   :2020-01-07   SO-Y0004344:  66      
+ 1st Qu.:2022-09-14   SO-Y0004300:  63      
+ Median :2023-12-13   SO-Y0004283:  61      
+ Mean   :2023-09-24   SO-Y0004347:  61      
+ 3rd Qu.:2024-12-06   SO-Y0004399:  59      
+ Max.   :2025-12-19   SO-Y0004402:  59      
+                      (Other)    :1599      
+                               samplingPoint.prefLabel samplingPoint.easting
+ RODGE BROOK NORTH WEST OF PORCHFIELD      :  66       Min.   :432195       
+ SHANKLIN EC BATHING WATER (18500)         :  63       1st Qu.:442065       
+ CAULE BOURNE AT SHALFLEET                 :  61       Median :450355       
+ RYDE EAST SANDS (BEACH MONITORING) (17900):  61       Mean   :449727       
+ R EASTERN YAR AT WEED GRID ST HELENS      :  59       3rd Qu.:456859       
+ RIVER EASTERN YAR AT BURNT HOUSE          :  59       Max.   :463755       
+ (Other)                                   :1599                            
+ samplingPoint.northing samplingPoint.region
+ Min.   :77341          Southern:1968       
+ 1st Qu.:83365                              
+ Median :86900                              
+ Mean   :86385                              
+ 3rd Qu.:89400                              
+ Max.   :92700                              
+                                            
+                         samplingPoint.area     samplingPoint.subArea
+ SOUTHERN - SOLENT AND SOUTH DOWNS:1968     L&amp;W EAST - SSD :  31     
+                                            Multiple Values:1937     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+ samplingPoint.samplingPointStatus
+ CLOSED:   1                      
+ OPEN  :1967                      
+                                  
+                                  
+                                  
+                                  
+                                  
+                                       samplingPoint.samplingPointType
+ FRESHWATER - RIVERS                                   :968           
+ FRESHWATER - UNSPECIFIED                              :546           
+ GROUNDWATER - BOREHOLE                                :  7           
+ GROUNDWATER - SPRING                                  : 17           
+ GROUNDWATER - WELLS &amp; ADITS                           :  1           
+ SALINE WATER - DESIGNATED BATHING BEACHES             :365           
+ SALINE WATER - ESTUARINE SITES - NON BATHING/SHELLFISH: 64           
+ phenomenonTime               
+ Min.   :2020-01-07 10:37:00  
+ 1st Qu.:2022-09-15 04:34:45  
+ Median :2023-12-13 22:37:30  
+ Mean   :2023-09-25 03:21:36  
+ 3rd Qu.:2024-12-06 08:53:30  
+ Max.   :2025-12-19 11:30:00  
+                              
+                                                    samplingPurpose
+ ENVIRONMENTAL MONITORING STATUTORY (EU DIRECTIVES)         :689   
+ MONITORING  (NATIONAL AGENCY POLICY)                       :875   
+ MONITORING  (UK GOVT POLICY - NOT GQA OR RE)               : 18   
+ MONITORING (BATHING WATER) SHORT TERM POLLUTION DISREGARDED:  2   
+ PLANNED INVESTIGATION (LOCAL MONITORING)                   :128   
+ PLANNED INVESTIGATION (NATIONAL AGENCY POLICY)             :255   
+ STATUTORY FAILURES (FOLLOW UPS AT NON-DESIGNATED POINTS)   :  1   
+                     sampleMaterialType    pH Water       Temp Water   
+ ESTUARINE WATER              :  64     Min.   :6.200   Min.   : 1.90  
+ GROUNDWATER                  :  25     1st Qu.:7.590   1st Qu.: 9.50  
+ RIVER / RUNNING SURFACE WATER:1514     Median :7.870   Median :12.70  
+ SEA WATER                    : 365     Mean   :7.883   Mean   :12.91  
+                                        3rd Qu.:8.182   3rd Qu.:16.10  
+                                        Max.   :9.200   Max.   :28.10  
+                                        NA's   :436     NA's   :25     
+   Cond @ 25C               location         YEAR          MONTH       
+ Min.   :   52.8   Isle_of_Wight:1968   Min.   :2020   Min.   : 1.000  
+ 1st Qu.:  480.0                        1st Qu.:2022   1st Qu.: 4.000  
+ Median :  588.0                        Median :2023   Median : 7.000  
+ Mean   : 1402.4                        Mean   :2023   Mean   : 6.645  
+ 3rd Qu.:  678.0                        3rd Qu.:2024   3rd Qu.: 9.000  
+ Max.   :54129.0                        Max.   :2025   Max.   :12.000  
+ NA's   :447                                                           </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pH of Water</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"pH Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 436 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 436 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 436 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 436 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 436 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 436 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 436 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Isle-of-Wight-ph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Isle-of-Wight-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Isle-of-Wight-ph-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Isle-of-Wight-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: E06000046 Isle of Wight. pH (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature of Water</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Temp Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 25 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 25 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Isle-of-Wight-temp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Isle-of-Wight-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Isle-of-Wight-temp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Isle-of-Wight-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: E06000046 Isle of Wight. Temperature (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conductivity @ 25 degrees</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Cond @ 25C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 447 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 447 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 447 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 447 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 447 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 447 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 447 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-Isle-of-Wight-cond" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Isle-of-Wight-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-Isle-of-Wight-cond-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Isle-of-Wight-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: E06000046 Isle of Wight. Conductivity @ 25C (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="e07000091_new_forest" class="level2">
+<h2 class="anchored" data-anchor-id="e07000091_new_forest">E07000091_New_Forest</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------ 1. Data cleaning and quality check ------</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the dataset</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> nfo <span class="co"># &lt;- only change this</span></span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical nominal variables as factors</span></span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>location)</span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.notation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.notation)</span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.prefLabel <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.prefLabel)</span>
+<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.region)</span>
+<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.area)</span>
+<span id="cb89-12"><a href="#cb89-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.subArea <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.subArea)</span>
+<span id="cb89-13"><a href="#cb89-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointStatus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointStatus)</span>
+<span id="cb89-14"><a href="#cb89-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointType)</span>
+<span id="cb89-15"><a href="#cb89-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPurpose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPurpose)</span>
+<span id="cb89-16"><a href="#cb89-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sampleMaterialType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>sampleMaterialType)</span>
+<span id="cb89-17"><a href="#cb89-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-18"><a href="#cb89-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create month end year</span></span>
+<span id="cb89-19"><a href="#cb89-19" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb89-20"><a href="#cb89-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb89-21"><a href="#cb89-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="fu">year</span>(phenomenonTime),</span>
+<span id="cb89-22"><a href="#cb89-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">MONTH =</span> <span class="fu">month</span>(phenomenonTime)</span>
+<span id="cb89-23"><a href="#cb89-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb89-24"><a href="#cb89-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-25"><a href="#cb89-25" aria-hidden="true" tabindex="-1"></a><span class="co"># check for missing data</span></span>
+<span id="cb89-26"><a href="#cb89-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Date            samplingPoint.notation 
+                                0                                 0 
+          samplingPoint.prefLabel             samplingPoint.easting 
+                                0                                 0 
+           samplingPoint.northing              samplingPoint.region 
+                                0                                 0 
+               samplingPoint.area             samplingPoint.subArea 
+                                0                                 0 
+samplingPoint.samplingPointStatus   samplingPoint.samplingPointType 
+                                0                                 0 
+                   phenomenonTime                   samplingPurpose 
+                                0                                 0 
+               sampleMaterialType                          pH Water 
+                                0                               384 
+                       Temp Water                        Cond @ 25C 
+                              583                               915 
+                         location                              YEAR 
+                                0                                 0 
+                            MONTH 
+                                0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove duplicates, if any</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check structure</span></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3462 obs. of  19 variables:
+ $ Date                             : IDate, format: "2020-02-19" "2021-04-29" ...
+ $ samplingPoint.notation           : Factor w/ 120 levels "SO-5GWQ0378",..: 93 93 93 93 93 93 93 93 93 93 ...
+ $ samplingPoint.prefLabel          : Factor w/ 120 levels "20M U/S SHEPTON BRIDGE, SHEPTON WATER",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ samplingPoint.easting            : int  413550 413550 413550 413550 413550 413550 413550 413550 413550 413550 ...
+ $ samplingPoint.northing           : int  114160 114160 114160 114160 114160 114160 114160 114160 114160 114160 ...
+ $ samplingPoint.region             : Factor w/ 2 levels "Southern","SouthWest": 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.area               : Factor w/ 2 levels "SOUTH WEST - WESSEX",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.subArea            : Factor w/ 3 levels "EAST WESSEX",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointStatus: Factor w/ 1 level "OPEN": 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.samplingPointType  : Factor w/ 17 levels "AGRICULTURE - FISH FARMING - NOT WATER COMPANY",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ phenomenonTime                   : POSIXct, format: "2020-02-19 09:43:00" "2021-04-29 11:16:00" ...
+ $ samplingPurpose                  : Factor w/ 9 levels "COMPLIANCE AUDIT (PERMIT)",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ sampleMaterialType               : Factor w/ 9 levels "ANY TRADE EFFLUENT",..: 9 9 9 9 9 9 9 9 9 9 ...
+ $ pH Water                         : num  7.94 8.17 8.04 7.91 7.75 7.91 7.96 7.89 8 8.01 ...
+ $ Temp Water                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Cond @ 25C                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ location                         : Factor w/ 1 level "New_Forest": 1 1 1 1 1 1 1 1 1 1 ...
+ $ YEAR                             : num  2020 2021 2021 2021 2021 ...
+ $ MONTH                            : num  2 4 5 6 7 8 9 10 11 12 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ranges</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date            samplingPoint.notation
+ Min.   :2020-01-06   SO-G0004128: 243      
+ 1st Qu.:2022-04-05   SW-50280585: 237      
+ Median :2023-10-24   SW-50281314: 158      
+ Mean   :2023-07-28   SW-50281306:  83      
+ 3rd Qu.:2024-12-11   SW-50280458:  72      
+ Max.   :2025-12-23   SO-G0004187:  71      
+                      (Other)    :2598      
+                              samplingPoint.prefLabel samplingPoint.easting
+ DARK WATER AT GATEWOOD BRIDGE            : 243       Min.   :408700       
+ HAMPSHIRE AVON AT FORDINGBRIDGE          : 237       1st Qu.:415748       
+ DOCKENS WATER AT A338                    : 158       Median :430225       
+ DOCKENS  WATER AT MOYLES COURT FOOTBRIDGE:  83       Mean   :427556       
+ RINGWOOD STW FINAL EFFLUENT              :  72       3rd Qu.:435603       
+ BROCKENHURST SEWAGE TREATMENT WORKS      :  71       Max.   :448138       
+ (Other)                                  :2598                            
+ samplingPoint.northing samplingPoint.region
+ Min.   : 91803         Southern :2282      
+ 1st Qu.:101417         SouthWest:1180      
+ Median :107092                             
+ Mean   :106442                             
+ 3rd Qu.:113150                             
+ Max.   :118649                             
+                                            
+                         samplingPoint.area     samplingPoint.subArea
+ SOUTH WEST - WESSEX              :1180     EAST WESSEX    :1180     
+ SOUTHERN - SOLENT AND SOUTH DOWNS:2282     L&amp;W EAST - SSD :  16     
+                                            Multiple Values:2266     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+ samplingPoint.samplingPointStatus
+ OPEN:3462                        
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                           samplingPoint.samplingPointType
+ FRESHWATER - RIVERS                                       :2457          
+ SEWAGE DISCHARGES - FINAL/TREATED EFFLUENT - WATER COMPANY: 214          
+ FRESHWATER - UNSPECIFIED                                  : 201          
+ AGRICULTURE - FISH FARMING - NOT WATER COMPANY            : 163          
+ FRESHWATER - COMPARATIVE INLET POINTS                     :  98          
+ SALINE WATER - DESIGNATED BATHING BEACHES                 :  60          
+ (Other)                                                   : 269          
+ phenomenonTime               
+ Min.   :2020-01-06 11:59:00  
+ 1st Qu.:2022-04-05 11:41:15  
+ Median :2023-10-24 22:35:30  
+ Mean   :2023-07-29 03:47:45  
+ 3rd Qu.:2024-12-11 12:09:00  
+ Max.   :2025-12-23 13:23:00  
+                              
+                                               samplingPurpose
+ ENVIRONMENTAL MONITORING STATUTORY (EU DIRECTIVES)    :1024  
+ MONITORING  (NATIONAL AGENCY POLICY)                  : 985  
+ MONITORING  (UK GOVT POLICY - NOT GQA OR RE)          : 444  
+ COMPLIANCE AUDIT (PERMIT)                             : 335  
+ PLANNED INVESTIGATION (LOCAL MONITORING)              : 325  
+ WATER QUALITY OPERATOR SELF MONITORING COMPLIANCE DATA: 257  
+ (Other)                                               :  92  
+                                       sampleMaterialType    pH Water     
+ RIVER / RUNNING SURFACE WATER                  :2785     Min.   : 5.540  
+ FINAL SEWAGE EFFLUENT                          : 318     1st Qu.: 7.060  
+ TRADE EFFLUENT - FRESHWATER RETURNED ABSTRACTED: 163     Median : 7.410  
+ SEA WATER                                      :  60     Mean   : 7.417  
+ POND / LAKE / RESERVOIR WATER                  :  49     3rd Qu.: 7.800  
+ GROUNDWATER - PURGED/PUMPED/REFILLED           :  27     Max.   :10.100  
+ (Other)                                        :  60     NA's   :384     
+   Temp Water      Cond @ 25C            location         YEAR     
+ Min.   : 0.30   Min.   :   64.0   New_Forest:3462   Min.   :2020  
+ 1st Qu.: 8.20   1st Qu.:  152.0                     1st Qu.:2022  
+ Median :11.90   Median :  236.0                     Median :2023  
+ Mean   :11.72   Mean   :  352.3                     Mean   :2023  
+ 3rd Qu.:15.30   3rd Qu.:  422.0                     3rd Qu.:2024  
+ Max.   :27.90   Max.   :44310.0                     Max.   :2025  
+ NA's   :583     NA's   :915                                       
+     MONTH       
+ Min.   : 1.000  
+ 1st Qu.: 4.000  
+ Median : 7.000  
+ Mean   : 6.623  
+ 3rd Qu.:10.000  
+ Max.   :12.000  
+                 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pH of Water</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"pH Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 384 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 384 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 384 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 384 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 384 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 384 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 384 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-New-Forest-ph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-New-Forest-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-New-Forest-ph-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-New-Forest-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: E07000091 New Forest. pH (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature of Water</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Temp Water"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 583 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 583 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 583 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 583 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 583 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 583 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 583 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-New-Forest-temp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-New-Forest-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-New-Forest-temp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-New-Forest-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: E07000091 New Forest. Temperature (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conductivity @ 25 degrees</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fun</span>(df, <span class="st">"Cond @ 25C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 915 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 915 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 915 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 915 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 915 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 915 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 915 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-New-Forest-cond" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-New-Forest-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-New-Forest-cond-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-New-Forest-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: E07000091 New Forest. Conductivity @ 25C (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="comperative-analysis" class="level1">
+<h1>Comperative analysis</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine four datasets</span></span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(med, rot, iow, nfo)</span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical nominal variables as factors</span></span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>location)</span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.notation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.notation)</span>
+<span id="cb116-7"><a href="#cb116-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.prefLabel <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.prefLabel)</span>
+<span id="cb116-8"><a href="#cb116-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.region)</span>
+<span id="cb116-9"><a href="#cb116-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.area)</span>
+<span id="cb116-10"><a href="#cb116-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.subArea <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.subArea)</span>
+<span id="cb116-11"><a href="#cb116-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointStatus <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointStatus)</span>
+<span id="cb116-12"><a href="#cb116-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPoint.samplingPointType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPoint.samplingPointType)</span>
+<span id="cb116-13"><a href="#cb116-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>samplingPurpose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>samplingPurpose)</span>
+<span id="cb116-14"><a href="#cb116-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sampleMaterialType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>sampleMaterialType)</span>
+<span id="cb116-15"><a href="#cb116-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-16"><a href="#cb116-16" aria-hidden="true" tabindex="-1"></a><span class="co"># create month end year</span></span>
+<span id="cb116-17"><a href="#cb116-17" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb116-18"><a href="#cb116-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb116-19"><a href="#cb116-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="fu">year</span>(phenomenonTime),</span>
+<span id="cb116-20"><a href="#cb116-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">MONTH =</span> <span class="fu">month</span>(phenomenonTime)</span>
+<span id="cb116-21"><a href="#cb116-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb116-22"><a href="#cb116-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-23"><a href="#cb116-23" aria-hidden="true" tabindex="-1"></a><span class="co"># view sampleMaterialType per location</span></span>
+<span id="cb116-24"><a href="#cb116-24" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>sampleMaterialType, df<span class="sc">$</span>location)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                 
+                                                  Isle_of_Wight Medway
+  ANY TRADE EFFLUENT                                          0      0
+  ESTUARINE WATER                                            64    137
+  FINAL SEWAGE EFFLUENT                                       0      0
+  GROUNDWATER                                                25      5
+  GROUNDWATER - PURGED/PUMPED/REFILLED                        0      0
+  POND / LAKE / RESERVOIR WATER                               0     57
+  RIVER / RUNNING SURFACE WATER                            1514     16
+  SEA WATER                                                 365      0
+  TRADE EFFLUENT - FRESHWATER RETURNED ABSTRACTED             0      0
+                                                 
+                                                  New_Forest Rother
+  ANY TRADE EFFLUENT                                      22     50
+  ESTUARINE WATER                                         14      0
+  FINAL SEWAGE EFFLUENT                                  318    383
+  GROUNDWATER                                             24     20
+  GROUNDWATER - PURGED/PUMPED/REFILLED                    27      0
+  POND / LAKE / RESERVOIR WATER                           49     64
+  RIVER / RUNNING SURFACE WATER                         2785   1352
+  SEA WATER                                               60     65
+  TRADE EFFLUENT - FRESHWATER RETURNED ABSTRACTED        163      0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view variables and observations</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   7579 obs. of  19 variables:
+ $ Date                             : IDate, format: "2020-01-10" "2020-02-25" ...
+ $ samplingPoint.notation           : Factor w/ 274 levels "SO-5GWQ0378",..: 72 72 72 72 72 72 72 72 72 72 ...
+ $ samplingPoint.prefLabel          : Factor w/ 274 levels "20M U/S SHEPTON BRIDGE, SHEPTON WATER",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.easting            : int  572949 572949 572949 572949 572949 572949 572949 572949 572949 572949 ...
+ $ samplingPoint.northing           : int  176722 176722 176722 176722 176722 176722 176722 176722 176722 176722 ...
+ $ samplingPoint.region             : Factor w/ 3 levels "Southern","SouthWest",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ samplingPoint.area               : Factor w/ 4 levels "SOUTH WEST - WESSEX",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.subArea            : Factor w/ 6 levels "EAST WESSEX",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ samplingPoint.samplingPointStatus: Factor w/ 2 levels "CLOSED","OPEN": 2 2 2 2 2 2 2 2 2 2 ...
+ $ samplingPoint.samplingPointType  : Factor w/ 21 levels "AGRICULTURE - FISH FARMING - NOT WATER COMPANY",..: 21 21 21 21 21 21 21 21 21 21 ...
+ $ phenomenonTime                   : POSIXct, format: "2020-01-10 09:38:00" "2020-02-25 12:01:00" ...
+ $ samplingPurpose                  : Factor w/ 13 levels "COMPLIANCE AUDIT (PERMIT)",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ sampleMaterialType               : Factor w/ 9 levels "ANY TRADE EFFLUENT",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ pH Water                         : num  8.45 8.6 8.63 8.43 8.74 8.67 8.61 8.69 8.83 8.66 ...
+ $ Temp Water                       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Cond @ 25C                       : num  44870 40656 38052 41183 40625 ...
+ $ location                         : Factor w/ 4 levels "Isle_of_Wight",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ YEAR                             : num  2020 2020 2020 2021 2021 ...
+ $ MONTH                            : num  1 2 3 10 11 12 1 2 3 5 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create broader categories for samplingPointType</span></span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampleMaterialGroup =</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb120-5"><a href="#cb120-5" aria-hidden="true" tabindex="-1"></a>      sampleMaterialType,</span>
+<span id="cb120-6"><a href="#cb120-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Freshwater =</span> <span class="fu">c</span>(<span class="st">"RIVER / RUNNING SURFACE WATER"</span>, <span class="st">"POND / LAKE / RESERVOIR WATER"</span>, <span class="st">"ESTUARINE WATER"</span>, <span class="st">"TRADE EFFLUENT - FRESHWATER RETURNED ABSTRACTED"</span>, <span class="st">"ANY TRADE EFFLUENT"</span>),</span>
+<span id="cb120-7"><a href="#cb120-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">Groundwater =</span> <span class="fu">c</span>(<span class="st">"GROUNDWATER - PURGED/PUMPED/REFILLED"</span>, <span class="st">"GROUNDWATER"</span>),</span>
+<span id="cb120-8"><a href="#cb120-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">Sewage =</span> <span class="fu">c</span>(<span class="st">"FINAL SEWAGE EFFLUENT"</span>),</span>
+<span id="cb120-9"><a href="#cb120-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Seawater =</span> <span class="fu">c</span>(<span class="st">"SEA WATER"</span>)</span>
+<span id="cb120-10"><a href="#cb120-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb120-11"><a href="#cb120-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb120-12"><a href="#cb120-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-13"><a href="#cb120-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Means on non-missing values (pH and temp only)</span></span>
+<span id="cb120-14"><a href="#cb120-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb120-15"><a href="#cb120-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location,sampleMaterialGroup) <span class="sc">%&gt;%</span></span>
+<span id="cb120-16"><a href="#cb120-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb120-17"><a href="#cb120-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_temp =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Temp Water</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb120-18"><a href="#cb120-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_ph =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">pH Water</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb120-19"><a href="#cb120-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_cond =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Cond @ 25C</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb120-20"><a href="#cb120-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb120-21"><a href="#cb120-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb120-22"><a href="#cb120-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-23"><a href="#cb120-23" aria-hidden="true" tabindex="-1"></a><span class="co"># quick view variables and observations</span></span>
+<span id="cb120-24"><a href="#cb120-24" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [13 × 5] (S3: tbl_df/tbl/data.frame)
+ $ location           : Factor w/ 4 levels "Isle_of_Wight",..: 1 1 1 2 2 3 3 3 3 4 ...
+ $ sampleMaterialGroup: Factor w/ 4 levels "Freshwater","Sewage",..: 1 3 4 1 3 1 2 3 4 1 ...
+ $ mean_temp          : num [1:13] 11.6 12.3 18.4 12.1 12.8 ...
+ $ mean_ph            : num [1:13] 7.89 7.18 NaN 8.43 6.96 ...
+ $ mean_cond          : num [1:13] 1414 623 NaN 28898 1213 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare mean pH by location</span></span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,</span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> location, <span class="at">y =</span> mean_ph, <span class="at">fill =</span> location)) <span class="sc">+</span></span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sampleMaterialGroup) <span class="sc">+</span></span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(    </span>
+<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Local authority area"</span>,    </span>
+<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean water pH"</span>,</span>
+<span id="cb122-9"><a href="#cb122-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Local authority area"</span>,</span>
+<span id="cb122-10"><a href="#cb122-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mean pH by Site Type and Location"</span>) <span class="sc">+</span></span>
+<span id="cb122-11"><a href="#cb122-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb122-12"><a href="#cb122-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb122-13"><a href="#cb122-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values or values outside the scale range
+(`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-mean-temp-ph-location" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean-temp-ph-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-mean-temp-ph-location-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-temp-ph-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Mean pH by Sample Material Type and Location (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare mean temperature by location</span></span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,</span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> location, <span class="at">y =</span> mean_temp, <span class="at">fill =</span> location)) <span class="sc">+</span></span>
+<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sampleMaterialGroup) <span class="sc">+</span></span>
+<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(    </span>
+<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Local authority area"</span>,    </span>
+<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean water temeprature"</span>,</span>
+<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Local authority area"</span>,</span>
+<span id="cb124-10"><a href="#cb124-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mean Temerpature by Site Type and Location"</span>) <span class="sc">+</span></span>
+<span id="cb124-11"><a href="#cb124-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb124-12"><a href="#cb124-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb124-13"><a href="#cb124-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-mean-temp-material-location" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean-temp-material-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-mean-temp-material-location-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-temp-material-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Mean Temerpature by Sample Material Type and Location (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,</span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> location, <span class="at">y =</span> mean_cond, <span class="at">fill =</span> location)) <span class="sc">+</span></span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sampleMaterialGroup) <span class="sc">+</span></span>
+<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(    </span>
+<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Local authority area"</span>,    </span>
+<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean water conductivity @ 25C"</span>,</span>
+<span id="cb126-8"><a href="#cb126-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Local authority area"</span>,</span>
+<span id="cb126-9"><a href="#cb126-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Mean Conductivity by Site Type and Location"</span>) <span class="sc">+</span></span>
+<span id="cb126-10"><a href="#cb126-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb126-11"><a href="#cb126-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb126-12"><a href="#cb126-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing missing values or values outside the scale range
+(`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-mean-cond-material-location" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean-cond-material-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Water_Quality_files/figure-html/fig-mean-cond-material-location-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-cond-material-location-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Mean Conductivity by Sample Material Type and Location (2020-2025)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
